@@ -4,8 +4,10 @@ import (
 	"app/database"
 	"app/router"
 	"app/scheduler"
-	"github.com/gofiber/fiber/v2"
 	"log"
+
+	"github.com/gofiber/fiber/v2"
+
 	// "github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 )
@@ -25,9 +27,6 @@ func main() {
 	})
 	app.Use(recover.New())
 	go scheduler.StartAutomationScheduler()
-
-	// allow cors
-	// app.Use(cors.New())
 
 	database.ConnectDB()
 
